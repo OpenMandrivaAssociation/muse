@@ -69,7 +69,6 @@ Icon=sound_section
 Terminal=false
 Type=Application
 Categories=X-MandrivaLinux-Multimedia-Sound;AudioVideo;Midi;
-Encoding=UTF-8
 EOF
 
 %post
