@@ -1,6 +1,6 @@
 %define name	muse
-%define version	0.8.1
-%define	release	%mkrel 3
+%define version	0.9
+%define	release	%mkrel 1
 
 #%define __libtoolize /bin/true
 
@@ -8,8 +8,8 @@ Name:		%{name}
 Summary:	MusE is a MIDI/Audio sequencer with recording and editing capabilities
 Version:	%{version}
 Release:	%{release}
-URL:		http://lmuse.sourceforge.net/
-Source:		%{name}-%{version}a.tar.bz2
+URL:		http://www.muse-sequencer.org/
+Source:		%{name}-%{version}.tar.bz2
 Group:		Sound
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	jackit-devel libalsa-devel openjade doxygen qt3-devel
@@ -51,13 +51,6 @@ make DESTDIR=$RPM_BUILD_ROOT SUIDINSTALL=no install
 
 mkdir -p $RPM_BUILD_ROOT%_menudir
 # (mandrake) menu support
-cat << EOF > %{buildroot}%{_menudir}/%{name}
-?package(%{name}): longtitle="MIDI sequencer" \
-command="%{_bindir}/%{name}" title="MusE"  needs="x11" \
-section="Multimedia/Sound" \
-icon="sound_section.png" \
-xdg="true"
-EOF
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
@@ -68,7 +61,7 @@ Exec=%{_bindir}/%{name}
 Icon=sound_section
 Terminal=false
 Type=Application
-Categories=X-MandrivaLinux-Multimedia-Sound;AudioVideo;Midi;
+Categories=AudioVideo;Midi;
 EOF
 
 %post
@@ -86,7 +79,6 @@ rm -rf $RPM_BUILD_ROOT
 %_bindir/*
 %_libdir/%name
 %_datadir/%name
-%_menudir/*
 %{_datadir}/applications/mandriva-%{name}.desktop
 
 
