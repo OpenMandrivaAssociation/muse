@@ -50,7 +50,7 @@ rm -rf $RPM_BUILD_ROOT
 make DESTDIR=$RPM_BUILD_ROOT SUIDINSTALL=no install
 
 mkdir -p $RPM_BUILD_ROOT%_menudir
-# (mandrake) menu support
+# (Mandriva) menu support
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
