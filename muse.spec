@@ -11,6 +11,7 @@ Release:	%{release}
 URL:		http://www.muse-sequencer.org/
 Source:		%{name}-%{version}.tar.bz2
 Group:		Sound
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	jackit-devel libalsa-devel openjade doxygen qt3-devel
 BuildRequires:  fluidsynth-devel libsndfile-devel
 BuildRequires:	libsamplerate-devel
