@@ -2,7 +2,6 @@
 %define version	0.9
 %define	release	%mkrel 1
 
-#%define __libtoolize /bin/true
 
 Name:		%{name}
 Summary:	MusE is a MIDI/Audio sequencer with recording and editing capabilities
@@ -17,7 +16,7 @@ BuildRequires:  fluidsynth-devel libsndfile-devel
 BuildRequires:	libsamplerate-devel
 BuildRequires:	docbook-style-dsssl docbook-dtd41-sgml
 BuildRequires:	ladcca-devel >= 0.4.0
-License:	GPL
+License:	GPLv2+
 
 %description
 MusE is a MIDI/Audio sequencer with recording and editing capabilities
