@@ -4,7 +4,7 @@
 
 
 Name:		%{name}
-Summary:	MusE is a MIDI/Audio sequencer with recording and editing capabilities
+Summary:	MIDI/Audio sequencer with recording and editing capabilities
 Version:	%{version}
 Release:	%{release}
 URL:		http://www.muse-sequencer.org/
