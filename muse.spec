@@ -1,6 +1,6 @@
 %define name	muse
 %define version	0.9
-%define	release	%mkrel 2
+%define	release	%mkrel 4
 
 
 Name:		%{name}
