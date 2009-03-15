@@ -1,6 +1,7 @@
 %define name	muse
-%define version	0.9
-%define	release	%mkrel 4
+%define version	1.0
+%define testing	rc1
+%define	release	%mkrel -c %testing 1
 
 
 Name:		%{name}
@@ -8,7 +9,9 @@ Summary:	MIDI/Audio sequencer with recording and editing capabilities
 Version:	%{version}
 Release:	%{release}
 URL:		http://www.muse-sequencer.org/
-Source:		%{name}-%{version}.tar.bz2
+Source:		http://downloads.sourceforge.net/lmuse/%{name}-%{version}%{testing}.tar.gz
+Patch0:		muse-1.0-linkage.patch
+Patch1:		muse-1.0-fix-str-fmt.patch
 Group:		Sound
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	jackit-devel libalsa-devel openjade doxygen qt3-devel
@@ -37,11 +40,12 @@ record/playback them with MusE.
        also have jackd running as the same user.
        
 %prep
-%setup -q
-#perl -p -i -e 's/spinboxfp/spinboxFP/g' muse/widgets/itransformbase.cpp muse/widgets/itransformbase.ui
+%setup -q -n %{name}-%{version}%{testing}
+%patch0 -p0
+%patch1 -p0
 
 %build
-%configure2_5x --disable-optimize --with-docbook-stylesheets=/usr/share/sgml/docbook/dsssl-stylesheets-1.79 --disable-qttest --disable-suid-install --disable-suid-build --enable-ladcca --with-qt-libraries=/usr/lib/qt3/%_lib
+%configure2_5x --disable-optimize --with-docbook-stylesheets=/usr/share/sgml/docbook/dsssl-stylesheets-1.79 --disable-qttest --disable-suid-install --disable-suid-build --enable-ladcca --with-qt-prefix=%{qt3dir} --with-qt-includes=%{qt3include} --with-qt-libraries=%qt3lib --with-qt-binaries=%{qt3dir}/bin
 %make
 
 %install
