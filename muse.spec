@@ -1,7 +1,7 @@
 %define name	muse
 %define version	1.0
 %define testing	rc1
-%define	release	%mkrel -c %testing 1
+%define	release	%mkrel -c %testing 2
 
 
 Name:		%{name}
