@@ -19,6 +19,7 @@ BuildRequires: pkgconfig
 BuildRequires: python-devel
 BuildRequires: qt4-devel
 BuildRequires: desktop-file-utils
+BuildRequires: libuuid-devel
 
 %description
 MusE is a MIDI/Audio sequencer with recording and editing capabilities. It can
