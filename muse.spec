@@ -1,6 +1,6 @@
 Name:          muse
 Summary:       Midi/Audio Music Sequencer
-Version:       2.0
+Version:       2.0.1
 Release:       1
 License:       Public Domain and GPLv2 and GPLv2+ and LGPLv2+
 Group:         Sound
@@ -46,11 +46,11 @@ pushd build
 %makeinstall_std
 
 %files
-%{_docdir}/%{name}-%{version}/
+%{_docdir}/%{name}-*/
 %{_bindir}/%{name}*
 %{_bindir}/grepmidi
-%{_libdir}/%{name}-%{version}*/
-%{_datadir}/%{name}-%{version}*/
+%{_libdir}/%{name}-*/
+%{_datadir}/%{name}-*/
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/64x64/apps/%{name}_icon.png
 %{_mandir}/man1/grepmidi*
