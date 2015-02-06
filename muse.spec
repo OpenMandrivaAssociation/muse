@@ -1,7 +1,7 @@
 Name:          muse
 Summary:       Midi/Audio Music Sequencer
 Version:       2.0.1
-Release:       1
+Release:       2
 License:       Public Domain and GPLv2 and GPLv2+ and LGPLv2+
 Group:         Sound
 URL:           http://www.muse-sequencer.org/
