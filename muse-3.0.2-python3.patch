@@ -1,0 +1,74 @@
+diff -up muse-muse_3_0_2/muse3/muse/remote/pyapi.cpp.omv~ muse-muse_3_0_2/muse3/muse/remote/pyapi.cpp
+--- muse-muse_3_0_2/muse3/muse/remote/pyapi.cpp.omv~	2019-02-23 00:56:48.814205796 +0100
++++ muse-muse_3_0_2/muse3/muse/remote/pyapi.cpp	2019-02-23 01:27:13.766093191 +0100
+@@ -268,7 +268,7 @@ PyObject* getParts(PyObject*, PyObject*
+ int getPythonPartId(PyObject* part)
+ {
+       PyObject* pyid = PyDict_GetItemString(part, "id");
+-      int id = PyInt_AsLong(pyid);
++      int id = PyLong_AsLong(pyid);
+       return id;
+ }
+ 
+@@ -314,15 +314,24 @@ bool addPyPartEventsToMusePart(MidiPart*
+             PyObject* p_len = PyDict_GetItemString(pevent, "len");
+             PyObject* p_data = PyDict_GetItemString(pevent, "data"); // list
+ 
+-            int etick = PyInt_AsLong(p_etick);
+-            int elen =  PyInt_AsLong(p_len);
+-            string type = string(PyString_AsString(p_type));
++            int etick = PyLong_AsLong(p_etick);
++            int elen =  PyLong_AsLong(p_len);
++            string type;
++	    if (PyUnicode_Check(p_type)) {
++		    PyObject *type_ = PyUnicode_AsEncodedString(p_type, "UTF-8", "strict");
++		    if(type_) {
++			    type = string(strdup(PyBytes_AS_STRING(type_)));
++			    Py_DECREF(type_);
++		    }
++	    } else if (PyBytes_Check(p_type)) {
++		    type = string(strdup(PyBytes_AS_STRING(p_type)));
++	    }
+             int data[3];
+ 
+             // Traverse data list:
+             for (int j=0; j<3; j++) {
+                   PyObject* plItem = PyList_GetItem(p_data, j);
+-                  data[j] = PyInt_AsLong(plItem);
++                  data[j] = PyLong_AsLong(plItem);
+                   }
+             if (type == "note" || type == "ctrl") {
+                   Event event(Note);
+@@ -985,6 +994,23 @@ PyMethodDef g_methodDefinitions[] =
+       {NULL, NULL, 0, NULL}
+ };
+ 
++struct module_state {
++	PyObject *error;
++};
++#define GETSTATE(m) ((struct module_state*)PyModule_GetState(m))
++
++static struct PyModuleDef g_moduledef = {
++	PyModuleDef_HEAD_INIT,
++	"muse",
++	NULL, /* doc */
++	-1,
++	g_methodDefinitions,
++	NULL, /* reload */
++	NULL, /* traverse */
++	NULL, /* clear */
++	NULL /* free */
++};
++
+ /**
+  * This function launches the Pyro name service, which blocks execution
+  * Thus it needs its own thread
+@@ -993,7 +1019,7 @@ static void* pyapithreadfunc(void*)
+ {
+       Py_Initialize();
+       PyImport_AddModule("muse");
+-      Py_InitModule( "muse", g_methodDefinitions );
++      PyModule_Create(&g_moduledef);
+ 
+       //
+       // Access the "__main__" module and its name-space dictionary.

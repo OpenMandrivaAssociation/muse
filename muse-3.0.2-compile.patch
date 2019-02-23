@@ -1,0 +1,46 @@
+diff -up muse-muse_3_0_2/muse3/muse/instruments/minstrument.cpp.omv~ muse-muse_3_0_2/muse3/muse/instruments/minstrument.cpp
+--- muse-muse_3_0_2/muse3/muse/instruments/minstrument.cpp.omv~	2019-02-23 00:55:03.785542295 +0100
++++ muse-muse_3_0_2/muse3/muse/instruments/minstrument.cpp	2019-02-23 00:55:10.828654031 +0100
+@@ -32,7 +32,7 @@
+ #include <QByteArray>
+ 
+ #include "minstrument.h"
+-#include "midiport.h"
++#include "../midiport.h"
+ #include "mididev.h"
+ #include "audio.h"
+ #include "midi.h"
+diff -up muse-muse_3_0_2/muse3/muse/mplugins/mitplugin.cpp.omv~ muse-muse_3_0_2/muse3/muse/mplugins/mitplugin.cpp
+--- muse-muse_3_0_2/muse3/muse/mplugins/mitplugin.cpp.omv~	2019-02-23 00:54:02.647571136 +0100
++++ muse-muse_3_0_2/muse3/muse/mplugins/mitplugin.cpp	2019-02-23 00:54:13.786748249 +0100
+@@ -21,6 +21,8 @@
+ //
+ //=========================================================
+ 
++#include <QAction>
++
+ #include "mitplugin.h"
+ #include "app.h"
+ #include "event.h"
+diff -up muse-muse_3_0_2/muse3/muse/widgets/genset.cpp.omv~ muse-muse_3_0_2/muse3/muse/widgets/genset.cpp
+--- muse-muse_3_0_2/muse3/muse/widgets/genset.cpp.omv~	2019-02-22 22:21:53.361620464 +0100
++++ muse-muse_3_0_2/muse3/muse/widgets/genset.cpp	2019-02-22 22:22:01.506759904 +0100
+@@ -29,6 +29,7 @@
+ #include <QRect>
+ #include <QShowEvent>
+ #include <QString>
++#include <QButtonGroup>
+ 
+ #include "genset.h"
+ #include "app.h"
+diff -up muse-muse_3_0_2/muse3/muse/widgets/midi_audio_control.cpp.omv~ muse-muse_3_0_2/muse3/muse/widgets/midi_audio_control.cpp
+--- muse-muse_3_0_2/muse3/muse/widgets/midi_audio_control.cpp.omv~	2019-02-22 22:24:32.356304098 +0100
++++ muse-muse_3_0_2/muse3/muse/widgets/midi_audio_control.cpp	2019-02-23 00:51:59.082600678 +0100
+@@ -20,6 +20,7 @@
+ //  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ //
+ //=========================================================
++#include "../midiport.h"
+ #include "midi_audio_control.h"
+ 
+ #include "globals.h"
