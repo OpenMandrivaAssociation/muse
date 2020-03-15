@@ -1,13 +1,14 @@
+#%%define _disable_lto 1
 Name:          muse
 Summary:       Midi/Audio Music Sequencer
-Version:       3.0.2
+Version:       3_1_0
 Release:       1
 License:       Public Domain and GPLv2 and GPLv2+ and LGPLv2+
 Group:         Sound
 URL:           http://www.muse-sequencer.org/
-Source0:       https://github.com/muse-sequencer/muse/archive/muse_%(echo %{version} | sed -e 's,\.,_,g').tar.gz
-Patch0:		muse-3.0.2-compile.patch
-Patch1:		muse-3.0.2-python3.patch
+Source0:       https://github.com/muse-sequencer/muse/archive/muse-muse_%(echo %{version} | sed -e 's,\.,_,g').tar.gz
+Patch0:        enable-zita-resampler.patch
+Patch1:	       fix-missing-include.patch
 
 BuildRequires: libalsa-devel
 BuildRequires: jackit-devel
@@ -25,7 +26,18 @@ BuildRequires: libuuid-devel
 BuildRequires: cmake(Qt5UiTools)
 BuildRequires: cmake(Qt5LinguistTools)
 BuildRequires: ladspa-devel
-
+BuildRequires: pkgconfig(lilv-0)
+BuildRequires: pkgconfig(lv2)
+BuildRequires: lilv-devel
+BuildRequires: sord-devel
+BuildRequires: pkgconfig(libinstpatch-1.0)
+BuildRequires: pkgconfig(rtaudio)
+BuildRequires: pkgconfig(rubberband)
+BuildRequires: pkgconfig(lrdf)
+BuildRequires: pkgconfig(lv2core)
+BuildRequires: pkgconfig(lv2-gui)
+BuildRequires: pkgconfig(lv2-plugin)
+#BuildRequires: pkgconfig(
 %description
 MusE is a MIDI/Audio sequencer with recording and editing capabilities. It can
 perform audio effects like chorus/flanger in real-time via LASH and it supports
@@ -39,10 +51,26 @@ for Linux.
 %build
 mkdir build
 pushd build
+#export CC=gcc
+#export CXX=g++
+#export LD=/usr/bin/ld.gold
 cmake .. \
-   -DMusE_DOC_DIR=%{_docdir}/%{name}-%{version}/ \
-   -DENABLE_PYTHON=1 -DENABLE_LASH=0 -DENABLE_FLUID=0 \
-   -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR:PATH=%_libdir
+ -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR:PATH=%{_libdir} \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DENABLE_EXPERIMENTAL=OFF \
+    -DENABLE_PYTHON=OFF \
+    -DENABLE_LASH=OFF \
+    -DENABLE_RTAUDIO=ON \
+    -DENABLE_LV2_GTK2=ON \
+    -DENABLE_ZITA_RESAMPLER=OFF \
+    -DENABLE_INSTPATCH=ON
+
+
+
+
+#   -DMusE_DOC_DIR=%{_docdir}/%{name}-%{version}/ \
+#   -DENABLE_PYTHON=1 -DENABLE_LASH=0 -DENABLE_FLUID=1 \
+#   -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR:PATH=%_libdir
 
 make
 
@@ -56,9 +84,9 @@ pushd build
 %{_bindir}/grepmidi
 %{_libdir}/%{name}-*/
 %{_datadir}/%{name}-*/
-%{_datadir}/applications/%{name}.desktop
-%{_datadir}/icons/hicolor/64x64/apps/%{name}_icon.png
+%{_datadir}/applications/org.musesequencer.Muse3.desktop
+%{_datadir}/icons/hicolor/64x64/apps/org.musesequencer.Muse3.png
 %{_mandir}/man1/grepmidi*
 %{_mandir}/man1/%{name}*
 %{_datadir}/mime/packages/muse.xml
-%{_datadir}/metainfo/muse.appdata.xml
+%{_datadir}/metainfo/org.musesequencer.Muse3.appdata.xml
