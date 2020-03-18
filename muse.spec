@@ -20,6 +20,9 @@ BuildRequires: libsamplerate-devel
 BuildRequires: sndfile-devel
 BuildRequires: pkgconfig
 BuildRequires: python-devel
+BuildRequires: python-qt5
+BuildRequires: python-pyro
+
 BuildRequires: qt5-devel
 BuildRequires: desktop-file-utils
 BuildRequires: libuuid-devel
@@ -35,9 +38,11 @@ BuildRequires: pkgconfig(rtaudio)
 BuildRequires: pkgconfig(rubberband)
 BuildRequires: pkgconfig(lrdf)
 BuildRequires: pkgconfig(lv2core)
-BuildRequires: pkgconfig(lv2-gui)
-BuildRequires: pkgconfig(lv2-plugin)
+#BuildRequires: pkgconfig(lv2-gui)
+BuildRequires: lv2-plugins
 #BuildRequires: pkgconfig(
+#Requires:  rtaudio
+#Requires: fluidsynth
 %description
 MusE is a MIDI/Audio sequencer with recording and editing capabilities. It can
 perform audio effects like chorus/flanger in real-time via LASH and it supports
@@ -51,9 +56,6 @@ for Linux.
 %build
 mkdir build
 pushd build
-#export CC=gcc
-#export CXX=g++
-#export LD=/usr/bin/ld.gold
 cmake .. \
  -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR:PATH=%{_libdir} \
     -DCMAKE_BUILD_TYPE=Release \
