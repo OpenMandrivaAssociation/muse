@@ -38,6 +38,8 @@ BuildRequires: pkgconfig(rtaudio)
 BuildRequires: pkgconfig(rubberband)
 BuildRequires: pkgconfig(lrdf)
 BuildRequires: pkgconfig(lv2core)
+BuildRequires: pkgconfig(raptor2)
+BuildRequires: pkgconfig(rtaudio)
 #BuildRequires: pkgconfig(lv2-gui)
 BuildRequires: lv2-plugins
 #BuildRequires: pkgconfig(
