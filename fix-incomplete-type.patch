@@ -34,6 +34,18 @@ index 8d27043b..400bf0cc 100644
  
  #include "utils.h"
  #include "slider.h"
+diff --git a/muse3/muse/components/utils.cpp b/muse3/muse/components/utils.cpp
+index 06600f03..02e97e3d 100644
+--- a/muse3/muse/components/utils.cpp
++++ b/muse3/muse/components/utils.cpp
+@@ -37,6 +37,7 @@
+ #include <QPointF>
+ #include <QFileInfo>
+ #include <QFont>
++#include <QPainterPath>
+ 
+ #include "audio.h"
+ #include "audiodev.h"
 diff --git a/muse3/muse/widgets/meter.cpp b/muse3/muse/widgets/meter.cpp
 index 2daf6699..b3786899 100644
 --- a/muse3/muse/widgets/meter.cpp
