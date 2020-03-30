@@ -46,6 +46,18 @@ index 06600f03..02e97e3d 100644
  
  #include "audio.h"
  #include "audiodev.h"
+diff --git a/muse3/muse/midiedit/scoreedit.cpp b/muse3/muse/midiedit/scoreedit.cpp
+index b963f3ad..788e43c3 100644
+--- a/muse3/muse/midiedit/scoreedit.cpp
++++ b/muse3/muse/midiedit/scoreedit.cpp
+@@ -44,6 +44,7 @@
+ #include <QImage>
+ #include <QInputDialog>
+ #include <QMessageBox>
++#include <QPainterPath>
+ 
+ #include <stdio.h>
+ #include "muse_math.h"
 diff --git a/muse3/muse/mixer/routedialog.cpp b/muse3/muse/mixer/routedialog.cpp
 index b2623ef0..1d3fd1cb 100644
 --- a/muse3/muse/mixer/routedialog.cpp
