@@ -22,3 +22,15 @@ index 7d82fde3..e33be869 100644
  
  namespace Awl {
  
+diff --git a/muse3/muse/widgets/meter.cpp b/muse3/muse/widgets/meter.cpp
+index 2daf6699..b3786899 100644
+--- a/muse3/muse/widgets/meter.cpp
++++ b/muse3/muse/widgets/meter.cpp
+@@ -31,6 +31,7 @@
+ #include <QResizeEvent>
+ #include <QVector>
+ #include <QLocale>
++#include <QPainterPath>
+ #include <algorithm>
+ 
+ #include "meter.h"
