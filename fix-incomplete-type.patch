@@ -10,3 +10,15 @@ index be8bc85d..b9f1e3e2 100644
  
  namespace Awl {
  
+diff --git a/muse3/awl/slider.cpp b/muse3/awl/slider.cpp
+index 7d82fde3..e33be869 100644
+--- a/muse3/awl/slider.cpp
++++ b/muse3/awl/slider.cpp
+@@ -24,6 +24,7 @@
+ 
+ #include <QMouseEvent>
+ #include <QPainter>
++#include <QPainterPath>
+ 
+ namespace Awl {
+ 
