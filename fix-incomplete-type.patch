@@ -22,6 +22,18 @@ index 7d82fde3..e33be869 100644
  
  namespace Awl {
  
+diff --git a/muse3/muse/components/slider.cpp b/muse3/muse/components/slider.cpp
+index 8d27043b..400bf0cc 100644
+--- a/muse3/muse/components/slider.cpp
++++ b/muse3/muse/components/slider.cpp
+@@ -27,6 +27,7 @@
+ 
+ #include <QPainter>
+ #include <QResizeEvent>
++#include <QPainterPath>
+ 
+ #include "utils.h"
+ #include "slider.h"
 diff --git a/muse3/muse/widgets/meter.cpp b/muse3/muse/widgets/meter.cpp
 index 2daf6699..b3786899 100644
 --- a/muse3/muse/widgets/meter.cpp
