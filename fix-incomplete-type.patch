@@ -1,0 +1,39 @@
+diff --git a/muse3/awl/knob.cpp b/muse3/awl/knob.cpp
+index be8bc85d..b9f1e3e2 100644
+--- a/muse3/awl/knob.cpp
++++ b/muse3/awl/knob.cpp
+@@ -25,6 +25,7 @@
+ 
+ #include <QMouseEvent>
+ #include <QPainter>
++#include <QPainterPath>
+ 
+ namespace Awl {
+ 
+diff --git a/muse3/muse/components/midi_audio_control.cpp b/muse3/muse/components/midi_audio_control.cpp
+index 4c29cd3e..00fb9cf6 100644
+--- a/muse3/muse/components/midi_audio_control.cpp
++++ b/muse3/muse/components/midi_audio_control.cpp
+@@ -29,9 +29,11 @@
+ #include "midictrl.h"
+ #include "audio.h"
+ #include "app.h"
++#include "operations.h"
+ 
+ #include <QTimer>
+ 
++
+ namespace MusEGui {
+ 
+ // -----------------------------------
+@@ -294,8 +296,8 @@ void MidiAudioControl::update()
+   int item_idx = 0;
+   for (int i = 0; i < MusECore::MIDI_PORTS; ++i) {
+         MusECore::MidiDevice* md = MusEGlobal::midiPorts[i].device(); 
+-        if(!md)  // In the case of this combo box, don't bother listing empty ports.             
+-          continue;
++        //if(!md)  // In the case of this combo box, don't bother listing empty ports.             
++        //  continue;
+         //if(!(md->rwFlags() & 1 || md->isSynti()) && (i != outPort))  
+         if(!(md->rwFlags() & 2) && (i != _port))   // Only readable ports, or current one.    
+           continue;

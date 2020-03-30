@@ -9,6 +9,7 @@ URL:           http://www.muse-sequencer.org/
 Source0:       https://github.com/muse-sequencer/muse/archive/muse-muse_%(echo %{version} | sed -e 's,\.,_,g').tar.gz
 Patch0:        enable-zita-resampler.patch
 Patch1:	       fix-missing-include.patch
+Patch2:	       fix-incomplete-type.patch
 
 BuildRequires: libalsa-devel
 BuildRequires: jackit-devel
@@ -22,7 +23,6 @@ BuildRequires: pkgconfig
 BuildRequires: python-devel
 BuildRequires: python-qt5
 BuildRequires: python-pyro
-
 BuildRequires: qt5-devel
 BuildRequires: desktop-file-utils
 BuildRequires: libuuid-devel
