@@ -42,7 +42,7 @@ BuildRequires: pkgconfig(raptor2)
 BuildRequires: pkgconfig(rtaudio)
 #BuildRequires: pkgconfig(lv2-gui)
 BuildRequires: lv2-plugins
-#BuildRequires: pkgconfig(
+BuildRequires: %{_lib}zita-reaampler-devel
 #Requires:  rtaudio
 #Requires: fluidsynth
 %description
