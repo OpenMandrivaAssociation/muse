@@ -1,7 +1,7 @@
 #%%define _disable_lto 1
 Name:          muse
 Summary:       Midi/Audio Music Sequencer
-Version:       3.1.0
+Version:       3.1.1
 Release:       1
 License:       Public Domain and GPLv2 and GPLv2+ and LGPLv2+
 Group:         Sound
