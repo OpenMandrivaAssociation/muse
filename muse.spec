@@ -19,7 +19,7 @@ BuildRequires: ninja
 BuildRequires: dssi-devel
 BuildRequires: fluidsynth-devel
 BuildRequires: liblo-devel
-BuildRequires: libsamplerate-devel
+BuildRequires: pkgconfig(samplerate)
 BuildRequires: sndfile-devel
 BuildRequires: pkgconfig
 BuildRequires: python-devel
@@ -27,7 +27,7 @@ BuildRequires: python-qt5
 BuildRequires: python-pyro
 BuildRequires: qt5-devel
 BuildRequires: desktop-file-utils
-BuildRequires: libuuid-devel
+BuildRequires: pkgconfig(uuid)
 BuildRequires: cmake(Qt5UiTools)
 BuildRequires: cmake(Qt5LinguistTools)
 BuildRequires: ladspa-devel
