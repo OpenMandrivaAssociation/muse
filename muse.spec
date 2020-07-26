@@ -1,3 +1,5 @@
+%global debug_package %{nil}
+
 #%%define _disable_lto 1
 Name:          muse
 Summary:       Midi/Audio Music Sequencer
