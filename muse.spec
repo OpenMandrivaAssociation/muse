@@ -1,14 +1,15 @@
+%global debug_package %{nil}
+
 #%%define _disable_lto 1
 Name:          muse
 Summary:       Midi/Audio Music Sequencer
-Version:       3.1.0
+Version:       3.1.1
 Release:       1
 License:       Public Domain and GPLv2 and GPLv2+ and LGPLv2+
 Group:         Sound
 URL:           http://www.muse-sequencer.org/
 Source0:       https://github.com/muse-sequencer/muse/archive/muse-muse_%(echo %{version} | sed -e 's,\.,_,g').tar.gz
 Patch1:	       fix-missing-include.patch
-Patch2:	       fix-incomplete-type.patch
 Patch3:		muse-3.1.0-experimental-features-fix-build.patch
 
 BuildRequires: libalsa-devel
