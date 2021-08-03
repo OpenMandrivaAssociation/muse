@@ -1,4 +1,5 @@
-%global debug_package %{nil}
+#global debug_package %{nil}
+%define _empty_manifest_terminate_build 0
 
 #%%define _disable_lto 1
 Name:          muse
