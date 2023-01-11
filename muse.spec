@@ -1,5 +1,4 @@
-#global debug_package %{nil}
-%define _empty_manifest_terminate_build 0
+%undefine _debugsource_packages
 %define version_no_zero %(if [ `echo %{version}|cut -d. -f3` = 0 ]; then echo -n %{version} |cut -d. -f1-2; else echo -n %{version}; fi)
 %define major %(echo %{version} |cut -d. -f1)
 
