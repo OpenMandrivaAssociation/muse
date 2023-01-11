@@ -1,17 +1,20 @@
 #global debug_package %{nil}
 %define _empty_manifest_terminate_build 0
+%define version_no_zero %(if [ `echo %{version}|cut -d. -f3` = 0 ]; then echo -n %{version} |cut -d. -f1-2; else echo -n %{version}; fi)
+%define major %(echo %{version} |cut -d. -f1)
 
 #%%define _disable_lto 1
 Name:          muse
 Summary:       Midi/Audio Music Sequencer
-Version:       3.1.1
-Release:       2
+Version:       4.1.0
+Release:       1
 License:       Public Domain and GPLv2 and GPLv2+ and LGPLv2+
 Group:         Sound
 URL:           http://www.muse-sequencer.org/
-Source0:       https://github.com/muse-sequencer/muse/archive/muse-muse_%(echo %{version} | sed -e 's,\.,_,g').tar.gz
-Patch1:	       fix-missing-include.patch
-Patch3:		muse-3.1.0-experimental-features-fix-build.patch
+Source0:       https://github.com/muse-sequencer/muse/releases/download/%{version}/muse-%{version_no_zero}.tar.gz
+#Patch1:	       fix-missing-include.patch
+#Patch3:		muse-3.1.0-experimental-features-fix-build.patch
+Patch0:		muse-4.1-linkage.patch
 
 BuildRequires: libalsa-devel
 BuildRequires: jackit-devel
@@ -55,7 +58,7 @@ for Linux.
 
 
 %prep
-%autosetup -p2 -n muse-muse_%(echo %{version} | sed -e 's,\.,_,g')/muse3
+%autosetup -p1 -n muse-%{version_no_zero}
 
 %build
 mkdir build
@@ -87,9 +90,9 @@ cmake .. \
 %{_bindir}/grepmidi
 %{_libdir}/%{name}-*/
 %{_datadir}/%{name}-*/
-%{_datadir}/applications/org.musesequencer.Muse3.desktop
-%{_datadir}/icons/hicolor/64x64/apps/org.musesequencer.Muse3.png
+%{_datadir}/applications/io.github.muse_sequencer.Muse.desktop
+%{_datadir}/icons/hicolor/*/apps/muse.*
 %{_mandir}/man1/grepmidi*
 %{_mandir}/man1/%{name}*
 %{_datadir}/mime/packages/muse.xml
-%{_datadir}/metainfo/org.musesequencer.Muse3.appdata.xml
+%{_datadir}/metainfo/io.github.muse_sequencer.Muse.appdata.xml
