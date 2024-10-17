@@ -9,7 +9,7 @@ Version:       4.1.0
 Release:       2
 License:       Public Domain and GPLv2 and GPLv2+ and LGPLv2+
 Group:         Sound
-URL:           http://www.muse-sequencer.org/
+URL:           https://www.muse-sequencer.org/
 Source0:       https://github.com/muse-sequencer/muse/releases/download/%{version}/muse-%{version_no_zero}.tar.gz
 #Patch1:	       fix-missing-include.patch
 #Patch3:		muse-3.1.0-experimental-features-fix-build.patch
