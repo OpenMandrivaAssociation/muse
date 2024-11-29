@@ -18,6 +18,7 @@ Source0:       https://github.com/muse-sequencer/muse/releases/download/%{versio
 BuildRequires: libalsa-devel
 BuildRequires: jackit-devel
 BuildRequires: cmake
+BuildRequires: extra-cmake-modules
 BuildRequires: ninja
 BuildRequires: dssi-devel
 BuildRequires: fluidsynth-devel
