@@ -61,10 +61,13 @@ for Linux.
 %autosetup -p1 -n muse-%{version_no_zero}
 
 %build
+export CC=gcc
+export CXX=g++
 mkdir build
 pushd build
 cmake .. \
-	-DCMAKE_INSTALL_PREFIX=%{_prefix} -DCMAKE_INSTALL_LIBDIR:PATH=%{_libdir} \
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+ 	-DCMAKE_INSTALL_LIBDIR:PATH=%{_libdir} \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DENABLE_EXPERIMENTAL=ON \
 	-DENABLE_PYTHON=ON \
