@@ -31,10 +31,13 @@ BuildRequires: python-devel
 BuildRequires: python-qt5
 BuildRequires: python-pyro
 BuildRequires: qt5-devel
+BuildRequires: pkgconfig(gtk+-2.0)
+BuildRequires: pkgconfig(gdkmm-2.4)
 BuildRequires: desktop-file-utils
 BuildRequires: pkgconfig(uuid)
 BuildRequires: cmake(Qt5UiTools)
 BuildRequires: cmake(Qt5LinguistTools)
+BuildRequires: pkgconfig(lash-1.0)
 BuildRequires: ladspa-devel
 BuildRequires: pkgconfig(lilv-0)
 BuildRequires: pkgconfig(lv2)
@@ -72,9 +75,9 @@ cmake .. \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DENABLE_EXPERIMENTAL=OFF \
 	-DENABLE_PYTHON=ON \
-	-DENABLE_LASH=OFF \
+	-DENABLE_LASH=ON \
 	-DENABLE_RTAUDIO=ON \
-	-DENABLE_LV2_GTK2=OFF\
+	-DENABLE_LV2_GTK2=ON \
 	-DENABLE_ZITA_RESAMPLER=OFF \
 	-DENABLE_INSTPATCH=ON \
 	-G Ninja
