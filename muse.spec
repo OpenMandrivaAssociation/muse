@@ -61,8 +61,8 @@ for Linux.
 %autosetup -p1 -n muse-%{version_no_zero}
 
 %build
-export CC=gcc
-export CXX=g++
+#export CC=gcc
+#export CXX=g++
 mkdir build
 pushd build
 cmake .. \
