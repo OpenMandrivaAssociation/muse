@@ -5,19 +5,21 @@
 #%%define _disable_lto 1
 Name:          muse
 Summary:       Midi/Audio Music Sequencer
-Version:       4.1.0
-Release:       3
+Version:       4.2.1
+Release:       1
 License:       Public Domain and GPLv2 and GPLv2+ and LGPLv2+
 Group:         Sound
 URL:           https://www.muse-sequencer.org/
 Source0:       https://github.com/muse-sequencer/muse/releases/download/%{version}/muse-%{version_no_zero}.tar.gz
 #Patch1:	       fix-missing-include.patch
 #Patch3:		muse-3.1.0-experimental-features-fix-build.patch
-Patch0:		muse-4.1-linkage.patch
+#Patch0:		muse-4.1-linkage.patch
 
+BuildRequires: atomic-devel
 BuildRequires: libalsa-devel
 BuildRequires: jackit-devel
 BuildRequires: cmake
+BuildRequires: extra-cmake-modules
 BuildRequires: ninja
 BuildRequires: dssi-devel
 BuildRequires: fluidsynth-devel
@@ -29,10 +31,13 @@ BuildRequires: python-devel
 BuildRequires: python-qt5
 BuildRequires: python-pyro
 BuildRequires: qt5-devel
+BuildRequires: pkgconfig(gtk+-2.0)
+BuildRequires: pkgconfig(gdkmm-2.4)
 BuildRequires: desktop-file-utils
 BuildRequires: pkgconfig(uuid)
 BuildRequires: cmake(Qt5UiTools)
 BuildRequires: cmake(Qt5LinguistTools)
+BuildRequires: pkgconfig(lash-1.0)
 BuildRequires: ladspa-devel
 BuildRequires: pkgconfig(lilv-0)
 BuildRequires: pkgconfig(lv2)
@@ -63,13 +68,14 @@ for Linux.
 mkdir build
 pushd build
 cmake .. \
-	-DCMAKE_INSTALL_PREFIX=%{_prefix} -DCMAKE_INSTALL_LIBDIR:PATH=%{_libdir} \
+	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
+ 	-DCMAKE_INSTALL_LIBDIR:PATH=%{_libdir} \
 	-DCMAKE_BUILD_TYPE=Release \
-	-DENABLE_EXPERIMENTAL=ON \
+	-DENABLE_EXPERIMENTAL=OFF \
 	-DENABLE_PYTHON=ON \
-	-DENABLE_LASH=OFF \
+	-DENABLE_LASH=ON \
 	-DENABLE_RTAUDIO=ON \
-	-DENABLE_LV2_GTK2=OFF\
+	-DENABLE_LV2_GTK2=ON \
 	-DENABLE_ZITA_RESAMPLER=OFF \
 	-DENABLE_INSTPATCH=ON \
 	-G Ninja
