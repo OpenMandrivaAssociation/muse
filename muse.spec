@@ -15,6 +15,7 @@ Source0:       https://github.com/muse-sequencer/muse/releases/download/%{versio
 #Patch3:		muse-3.1.0-experimental-features-fix-build.patch
 #Patch0:		muse-4.1-linkage.patch
 
+BuildRequires: atomic-devel
 BuildRequires: libalsa-devel
 BuildRequires: jackit-devel
 BuildRequires: cmake
