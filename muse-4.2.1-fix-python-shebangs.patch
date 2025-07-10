@@ -1,0 +1,153 @@
+diff -rupN muse-4.2.1.old/share/scripts/ConstantLength muse-4.2.1/share/scripts/ConstantLength
+--- muse-4.2.1.old/share/scripts/ConstantLength	2023-04-22 19:32:17.000000000 +0200
++++ muse-4.2.1/share/scripts/ConstantLength	2025-07-10 15:29:59.396996988 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python3
++#!/usr/bin/python
+ # -*- coding: utf-8 -*-
+ #=============================================================================
+ #  MusE
+diff -rupN muse-4.2.1.old/share/scripts/ConstantVelocityForNote muse-4.2.1/share/scripts/ConstantVelocityForNote
+--- muse-4.2.1.old/share/scripts/ConstantVelocityForNote	2023-04-22 19:32:17.000000000 +0200
++++ muse-4.2.1/share/scripts/ConstantVelocityForNote	2025-07-10 15:32:34.156722825 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python3
++#!/usr/bin/python
+ # -*- coding: utf-8 -*-
+ # MusE external midi processing script
+ # By: Robert Jonsson 2020
+diff -rupN muse-4.2.1.old/share/scripts/CreateBassline muse-4.2.1/share/scripts/CreateBassline
+--- muse-4.2.1.old/share/scripts/CreateBassline	2023-04-22 19:32:17.000000000 +0200
++++ muse-4.2.1/share/scripts/CreateBassline	2025-07-10 15:30:32.410604415 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python3
++#!/usr/bin/python
+ # -*- coding: utf-8 -*-
+ # MusE external midi processing script
+ # By: Staffan Melin 2020 (based on scripts by Robert Jonsson 2009/2012)
+diff -rupN muse-4.2.1.old/share/scripts/DoNothing muse-4.2.1/share/scripts/DoNothing
+--- muse-4.2.1.old/share/scripts/DoNothing	2023-04-22 19:32:17.000000000 +0200
++++ muse-4.2.1/share/scripts/DoNothing	2025-07-10 15:30:40.705865197 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python3
++#!/usr/bin/python
+ # -*- coding: utf-8 -*-
+ #=============================================================================
+ #  MusE
+diff -rupN muse-4.2.1.old/share/scripts/Humanize muse-4.2.1/share/scripts/Humanize
+--- muse-4.2.1.old/share/scripts/Humanize	2023-04-22 19:32:17.000000000 +0200
++++ muse-4.2.1/share/scripts/Humanize	2025-07-10 15:30:48.812209439 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python3
++#!/usr/bin/python
+ # -*- coding: utf-8 -*-
+ # MusE external midi processing script
+ # By: Staffan Melin (based on RandomizeVelocityRelative by Michael Oswald and RandomPosition1 by Robert Jonsson)
+diff -rupN muse-4.2.1.old/share/scripts/RandomizeVelocityRelative muse-4.2.1/share/scripts/RandomizeVelocityRelative
+--- muse-4.2.1.old/share/scripts/RandomizeVelocityRelative	2023-04-22 19:32:17.000000000 +0200
++++ muse-4.2.1/share/scripts/RandomizeVelocityRelative	2025-07-10 15:30:57.230324523 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python3
++#!/usr/bin/python
+ # -*- coding: utf-8 -*-
+ # MusE external midi processing script
+ # By: Michael Oswald 2018
+diff -rupN muse-4.2.1.old/share/scripts/RandomPosition1 muse-4.2.1/share/scripts/RandomPosition1
+--- muse-4.2.1.old/share/scripts/RandomPosition1	2023-04-22 19:32:17.000000000 +0200
++++ muse-4.2.1/share/scripts/RandomPosition1	2025-07-10 15:31:05.954021821 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python3
++#!/usr/bin/python
+ # -*- coding: utf-8 -*-
+ # MusE external midi processing script
+ # By: Robert Jonsson 2013
+diff -rupN muse-4.2.1.old/share/scripts/RemoveAftertouch muse-4.2.1/share/scripts/RemoveAftertouch
+--- muse-4.2.1.old/share/scripts/RemoveAftertouch	2023-04-22 19:32:17.000000000 +0200
++++ muse-4.2.1/share/scripts/RemoveAftertouch	2025-07-10 15:31:13.285713558 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python3
++#!/usr/bin/python
+ # -*- coding: utf-8 -*-
+ #=============================================================================
+ #  MusE
+diff -rupN muse-4.2.1.old/share/scripts/RemoveDoubles muse-4.2.1/share/scripts/RemoveDoubles
+--- muse-4.2.1.old/share/scripts/RemoveDoubles	2023-04-22 19:32:17.000000000 +0200
++++ muse-4.2.1/share/scripts/RemoveDoubles	2025-07-10 15:31:21.697022867 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python3
++#!/usr/bin/python
+ # -*- coding: utf-8 -*-
+ # MusE external midi processing script
+ # By: Robert Jonsson (c) 2013
+diff -rupN muse-4.2.1.old/share/scripts/RemoveShortEvents muse-4.2.1/share/scripts/RemoveShortEvents
+--- muse-4.2.1.old/share/scripts/RemoveShortEvents	2023-04-22 19:32:17.000000000 +0200
++++ muse-4.2.1/share/scripts/RemoveShortEvents	2025-07-10 15:31:31.899043651 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python3
++#!/usr/bin/python
+ # -*- coding: utf-8 -*-
+ # MusE external midi processing script
+ # By: Robert Jonsson 2009
+diff -rupN muse-4.2.1.old/share/scripts/Reverse muse-4.2.1/share/scripts/Reverse
+--- muse-4.2.1.old/share/scripts/Reverse	2023-09-05 23:03:42.000000000 +0200
++++ muse-4.2.1/share/scripts/Reverse	2025-07-10 15:31:39.656983908 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python3
++#!/usr/bin/python
+ # -*- coding: utf-8 -*-
+ # MusE external midi processing script
+ # By: Staffan Melin
+diff -rupN muse-4.2.1.old/share/scripts/Rhythm1 muse-4.2.1/share/scripts/Rhythm1
+--- muse-4.2.1.old/share/scripts/Rhythm1	2023-04-22 19:32:17.000000000 +0200
++++ muse-4.2.1/share/scripts/Rhythm1	2025-07-10 15:31:46.948969862 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python3
++#!/usr/bin/python
+ # -*- coding: utf-8 -*-
+ # MusE external midi processing script
+ # By: Robert Jonsson 2012
+diff -rupN muse-4.2.1.old/share/scripts/SpeedChange muse-4.2.1/share/scripts/SpeedChange
+--- muse-4.2.1.old/share/scripts/SpeedChange	2023-09-05 23:03:42.000000000 +0200
++++ muse-4.2.1/share/scripts/SpeedChange	2025-07-10 15:31:53.877641840 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python3
++#!/usr/bin/python
+ # -*- coding: utf-8 -*-
+ # MusE external midi processing script
+ # By: Staffan Melin
+diff -rupN muse-4.2.1.old/share/scripts/SpeedDouble muse-4.2.1/share/scripts/SpeedDouble
+--- muse-4.2.1.old/share/scripts/SpeedDouble	2023-04-22 19:32:17.000000000 +0200
++++ muse-4.2.1/share/scripts/SpeedDouble	2025-07-10 15:32:02.505776072 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python3
++#!/usr/bin/python
+ # -*- coding: utf-8 -*-
+ # MusE external midi processing script
+ # By: Staffan Melin
+diff -rupN muse-4.2.1.old/share/scripts/SpeedHalf muse-4.2.1/share/scripts/SpeedHalf
+--- muse-4.2.1.old/share/scripts/SpeedHalf	2023-04-22 19:32:17.000000000 +0200
++++ muse-4.2.1/share/scripts/SpeedHalf	2025-07-10 15:32:08.752909559 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python3
++#!/usr/bin/python
+ # -*- coding: utf-8 -*-
+ # MusE external midi processing script
+ # By: Staffan Melin
+diff -rupN muse-4.2.1.old/share/scripts/SwingQuantize1 muse-4.2.1/share/scripts/SwingQuantize1
+--- muse-4.2.1.old/share/scripts/SwingQuantize1	2023-04-22 19:32:17.000000000 +0200
++++ muse-4.2.1/share/scripts/SwingQuantize1	2025-07-10 15:32:15.500032819 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python3
++#!/usr/bin/python
+ # -*- coding: utf-8 -*-
+ # MusE external midi processing script
+ # By: Robert Jonsson 2009
+diff -rupN muse-4.2.1.old/share/scripts/TempoDelay muse-4.2.1/share/scripts/TempoDelay
+--- muse-4.2.1.old/share/scripts/TempoDelay	2023-04-22 19:32:17.000000000 +0200
++++ muse-4.2.1/share/scripts/TempoDelay	2025-07-10 15:29:44.937752926 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python3
++#!/usr/bin/python
+ # -*- coding: utf-8 -*-
+ # MusE external midi processing script
+ # By: Robert Jonsson 2014

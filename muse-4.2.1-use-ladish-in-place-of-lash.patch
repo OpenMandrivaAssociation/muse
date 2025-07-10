@@ -1,0 +1,36 @@
+diff -rupN muse-4.2.1.old/CMakeLists.txt muse-4.2.1/CMakeLists.txt
+--- muse-4.2.1.old/CMakeLists.txt	2023-09-24 17:11:12.000000000 +0200
++++ muse-4.2.1/CMakeLists.txt	2025-07-10 14:30:16.384873451 +0200
+@@ -449,7 +449,7 @@ endif (ENABLE_DSSI OR ENABLE_ALSA)
+ ##
+ 
+ if (ENABLE_LASH)
+-      PKG_CHECK_MODULES(LASH lash-1.0>=0.2)
++      PKG_CHECK_MODULES(LASH liblash>=1.1.1)
+       if (LASH_FOUND)
+             include_directories(${LASH_INCLUDE_DIRS})
+             set(HAVE_LASH ON)
+diff -rupN muse-4.2.1.old/muse/app.cpp muse-4.2.1/muse/app.cpp
+--- muse-4.2.1.old/muse/app.cpp	2023-09-05 23:03:42.000000000 +0200
++++ muse-4.2.1/muse/app.cpp	2025-07-10 14:32:17.814071946 +0200
+@@ -181,7 +181,7 @@ static pthread_t watchdogThread;
+ QStringList projectRecentList;
+ 
+ #ifdef HAVE_LASH
+-#include <lash/lash.h>
++#include <lash-1.0/lash/lash.h>
+ lash_client_t * lash_client = 0;
+ #endif /* HAVE_LASH */
+ 
+diff -rupN muse-4.2.1.old/muse/main.cpp muse-4.2.1/muse/main.cpp
+--- muse-4.2.1.old/muse/main.cpp	2023-09-05 23:03:42.000000000 +0200
++++ muse-4.2.1/muse/main.cpp	2025-07-10 14:32:36.926458269 +0200
+@@ -86,7 +86,7 @@
+ #include "conf.h"
+ 
+ #ifdef HAVE_LASH
+-#include <lash/lash.h>
++#include <lash-1.0/lash/lash.h>
+ #endif
+ 
+ #ifdef HAVE_INSTPATCH
